@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arjun Prabhakaran</title>
+<meta name="description" content="Arjun Prabhakaran - builder, founder and ML researcher in Chicago.">
+<meta name="theme-color" content="#FAF8FB">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  // set the theme before first paint so there's no flash
+  (function () {
+    var t = localStorage.getItem("theme") ||
+            (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.dataset.theme = t;
+  })();
+</script>
+</head>
+<body>
+
+
+<button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+  <figure>
+    <img alt="">
+    <figcaption></figcaption>
+  </figure>
+</div>
+
+<main>
+
+  <div class="stagger" style="--i:0">
+    <h1>Arjun Prabhakaran</h1>
+    <p class="role">Builder, founder and ML researcher, working toward physical AI.
+      Senior at Lane Tech High School in Chicago.</p>
+    <p class="lede">I build tools that help people understand what&rsquo;s really happening in
+      their business and their data, and my next goal is to move that work off the screen,
+      toward systems that perceive and act in physical space.</p>
+    <p>Data work for a family business in ninth grade turned into my startup,
+      <a href="https://focalect.com">Focalect</a>. Since then: deep-learning research as
+      sole author, a speech therapy app on the App Store, and software and electronics
+      captain for my FIRST Robotics team.</p>
+    <p>If you&rsquo;re also looking into breaking into physical AI, have cool work, or just want to chat, I&rsquo;d love to meet.</p>
+  </div>
+
+  <div class="charms stagger" style="--i:1">
+    <figure class="charm" style="--w:112px; --period:5.4s; --phase:-0.8s; --amp:2.4deg">
+      <span class="anchor" aria-hidden="true"></span>
+      <span class="swing" role="button" tabindex="0">
+        <span class="string" style="--len:22px" aria-hidden="true"></span>
+        <span class="tagwrap">
+          <span class="ring" aria-hidden="true"></span>
+          <span class="tag"><img src="photos/focalect-dashboard.webp" alt="The Focalect analytics dashboard" style="--ar:16/10" draggable="false"></span>
+        </span>
+      </span>
+      <figcaption>focalect</figcaption>
+    </figure>
+
+    <figure class="charm" style="--w:76px; --period:6.8s; --phase:-3.1s; --amp:3.2deg">
+      <span class="anchor" aria-hidden="true"></span>
+      <span class="swing" role="button" tabindex="0">
+        <span class="string" style="--len:48px" aria-hidden="true"></span>
+        <span class="tagwrap">
+          <span class="ring" aria-hidden="true"></span>
+          <span class="tag"><img src="photos/frc-windy-city.webp" alt="Team 4645 with the 2025 Windy City Windup winner banner" style="--ar:3/4" draggable="false"></span>
+        </span>
+      </span>
+      <figcaption>windy city</figcaption>
+    </figure>
+
+    <figure class="charm" style="--w:100px; --period:4.6s; --phase:-1.9s; --amp:1.9deg">
+      <span class="anchor" aria-hidden="true"></span>
+      <span class="swing" role="button" tabindex="0">
+        <span class="string" style="--len:14px" aria-hidden="true"></span>
+        <span class="tagwrap">
+          <span class="ring" aria-hidden="true"></span>
+          <span class="tag"><img src="photos/continuum-team.webp" alt="The Continuum team presenting the app" style="--ar:4/3" draggable="false"></span>
+        </span>
+      </span>
+      <figcaption>continuum</figcaption>
+    </figure>
+  </div>
+
+  <section class="stagger" style="--i:2">
+    <h2>Selected work</h2>
+
+    <div class="entry">
+      <div class="entry-year">2024 &ndash;</div>
+      <div class="entry-body">
+        <div class="entry-title"><a href="https://focalect.com">Focalect</a></div>
+        <div class="entry-note">Sales and marketing analytics for small businesses.
+          <ul>
+          <li>Unifies Stripe, PayPal, Instagram, Facebook, TikTok and YouTube, then attributes revenue to the campaign that actually earned it.</li>
+          <li>Built solo and full-stack. I ran the ad campaigns that onboarded 32 businesses into an early pilot.</li>
+          <li>The first owner I demoed to said she wouldn&rsquo;t use half the graphs. Nine cluttered metrics became four &mdash; she opens it every day.</li>
+          </ul>
+        </div>
+      </div>
+      <span class="charm-sm" style="--tilt:-2.5deg" aria-hidden="true"><span class="ring"></span><span class="tag"><img src="photos/focalect-logo.png" alt="" draggable="false"></span></span>
+    </div>
+
+    <div class="entry">
+      <div class="entry-year">2023 &ndash;</div>
+      <div class="entry-body">
+        <div class="entry-title">FIRST Robotics Team 4645</div>
+        <div class="entry-note">Software &amp; Electronics Captain, the Chicago-Style BotDogs.
+          <ul>
+          <li>Help lead about 100 students; ran a six-week curriculum teaching 20 newcomers programming and electronics.</li>
+          <li>Designed the autonomous, wiring and computer vision systems we compete with.</li>
+          <li>2026 Midwest Regional Creativity Award &middot; 2025 Windy City Invitational champions &middot; exhibited at the International Manufacturing &amp; Technology Show to 86,000+ attendees.</li>
+          <li>Newcomers used to hang back, so I ran a seniors-versus-freshmen pool noodle battle. When our robot died at the Midwest Regional, they rewired it with me.</li>
+          </ul>
+        </div>
+      </div>
+      <span class="charm-sm" style="--tilt:2deg" aria-hidden="true"><span class="ring"></span><span class="tag"><img src="photos/imts.webp" alt="" draggable="false"></span></span>
+    </div>
+
+    <div class="entry">
+      <div class="entry-year">2026</div>
+      <div class="entry-body">
+        <div class="entry-title"><a href="https://nhsjs.com/wp-content/uploads/2026/10/The-Effect-of-Dataset-Size-and-Augmentation-on-Convolutional-Neural-Network-Internal-Feature-Representations.pdf">Dataset size, augmentation, and what a CNN actually learns</a></div>
+        <div class="entry-note">Sole author, peer-reviewed in <em>The National High School Journal of Science</em>.
+          <ul>
+          <li>Fine-tuned ResNet-18 to measure how dataset size and augmentation reshape a network&rsquo;s internal features &mdash; not just its accuracy.</li>
+          <li>Ten times more real data doubled class separation; accuracy rose from 82.9% to 88.3%.</li>
+          <li>Augmentation cut within-class spread by up to 26% but never reliably separated the classes: it helps when data is scarce, it doesn&rsquo;t replace data.</li>
+          <li>Every experiment run independently on my own machine.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-year">2026</div>
+      <div class="entry-body">
+        <div class="entry-title"><a href="https://apps.apple.com/us/app/continuum-speech-therapy/id6791718345">Continuum</a></div>
+        <div class="entry-note">A speech therapy app, built and shipped to the App Store in five weeks.
+          <ul>
+          <li>I wrote the backend and the deep-learning audio scoring model.</li>
+          <li>Piloted with 30 kids, reached 4.1k people, and pitched to Chicago Public Schools and Apple executives at UChicago.</li>
+          <li>Watch the <a href="https://www.youtube.com/watch?v=uvc2GdWpjM8">pitch video</a>.</li>
+          <li>1 of 12 chosen from 1,600+ applicants for the <a href="https://www.eccchicago.org/2026-app-accelerator-startup-edition.html#continuum">Chicago Youth Works accelerator</a>, and one of only two high schoolers.</li>
+          </ul>
+        </div>
+      </div>
+      <span class="charm-sm" style="--tilt:1.6deg" aria-hidden="true"><span class="ring"></span><span class="tag"><img src="photos/continuum-team.webp" alt="" draggable="false"></span></span>
+    </div>
+  </section>
+
+  <section class="other stagger" style="--i:3">
+    <h2>Other work</h2>
+
+    <details>
+      <summary>
+        <span class="entry-year">2026</span>
+        <span class="other-title"><a href="https://devpost.com/software/signal-sense-ncd2wa">Signal Sense</a></span>
+        <span class="other-hint">first place of 42 teams at HSHacks</span>
+      </summary>
+      <p class="other-note">A web app that reads screenshots of conversations, extracts and vectorizes the text, and uses a machine-learning classifier to flag signs that someone may be struggling &mdash; so their friends know when to check in.</p>
+    </details>
+
+    <details>
+      <summary>
+        <span class="entry-year">2026</span>
+        <span class="other-title">Chicago Transit Authority</span>
+        <span class="other-hint">data analyst intern</span>
+      </summary>
+      <p class="other-note">With a team of fellow interns I scraped, cleaned and analyzed public transit data, then developed recommendations for bus and rail expansion to improve ridership and efficiency. Our proposal was 1 of 8 chosen from about 60, and we presented it to the CTA Board of Directors.</p>
+    </details>
+
+    <details>
+      <summary>
+        <span class="entry-year">2023 &ndash;</span>
+        <span class="other-title">BuySide Global</span>
+        <span class="other-hint">analytics engineer, family business</span>
+      </summary>
+      <p class="other-note">I built dashboards and an ad-attribution system tracking $83k+ in yearly sales, A/B tested landing pages, and designed pricing models from Stripe data. The automation scripts I wrote here became the foundation of Focalect.</p>
+    </details>
+
+    <details>
+      <summary>
+        <span class="entry-year"></span>
+        <span class="other-title">Chicago Teen Mentors</span>
+        <span class="other-hint">tutor, 60+ hours</span>
+      </summary>
+      <p class="other-note">Weekly tutoring for high school freshmen in algebra, trigonometry and SAT prep.</p>
+    </details>
+  </section>
+
+  <section class="stagger" style="--i:4">
+    <h2>Honors</h2>
+    <ul>
+      <li>1 of 12 selected from 1,600+ for the Chicago Youth Works accelerator, 1 of 2 high schoolers</li>
+      <li>First place, HSHacks 2026, out of 42 teams</li>
+      <li>Sole-author publication, <em>The National High School Journal of Science</em></li>
+      <li>2026 FIRST Midwest Regional Creativity Award; 2025 Windy City Invitational champions</li>
+      <li>Selected exhibitor, International Manufacturing &amp; Technology Show &mdash; 86,000+ attendees</li>
+      <li>CTA intern pitch: top 8 of about 60 teams, presented to the CTA Board</li>
+      <li>Lane Scholar, top 5% of class</li>
+      <li>CPS City Tennis Championship &mdash; first place 2025, second place 2026</li>
+    </ul>
+  </section>
+
+  <section class="stagger" style="--i:5">
+    <h2>What I&rsquo;m building toward</h2>
+    <p>Focalect can tell an owner which ads drive sales. It can&rsquo;t tell them why a
+      shopper walks past one shelf and pauses at another.</p>
+    <p>I want to build affordable vision robots that read that behavior from movement
+      rather than faces, so privacy survives the measurement. The hard part, and the
+      reason I want it: making a robot understand a crowded, constantly changing scene
+      from very little training data.</p>
+  </section>
+
+  <section class="stagger" style="--i:6">
+    <h2>Away from the keyboard</h2>
+    <ul>
+      <li>Varsity doubles tennis, 5.21 UTR</li>
+      <li>Lead singer of a school band; solo vocalist at three concerts for crowds over a thousand</li>
+      <li>Eight years collecting Yu-Gi-Oh cards, seventeen competitive decks built</li>
+      <li>Fantasy webnovels on the train &mdash; once missed my stop and ended up downtown</li>
+    </ul>
+  </section>
+
+  <section class="stagger" style="--i:7">
+    <h2>Tools</h2>
+    <dl class="elsewhere">
+      <dt>ML</dt>
+      <dd>Python, PyTorch, computer vision, audio ML</dd>
+      <dt>Web</dt>
+      <dd>Next.js, TypeScript, full-stack</dd>
+      <dt>Data</dt>
+      <dd>MySQL/MariaDB, ClickHouse, Stripe/Meta/TikTok/YouTube APIs, attribution, A/B testing</dd>
+      <dt>Hardware</dt>
+      <dd>Robotics wiring, autonomous systems</dd>
+    </dl>
+  </section>
+
+  <section class="stagger" style="--i:8">
+    <h2>Elsewhere</h2>
+    <dl class="elsewhere">
+      <dt>Email</dt>
+      <dd><a href="mailto:arjunaprabhakaran@gmail.com">arjunaprabhakaran@gmail.com</a></dd>
+      <dt>Code</dt>
+      <dd><a href="https://github.com/prajunaa">github.com/prajunaa</a></dd>
+      <dt>Startup</dt>
+      <dd><a href="https://focalect.com">focalect.com</a></dd>
+      <dt>LinkedIn</dt>
+      <dd><a href="https://www.linkedin.com/in/arjunprab/">in/arjunprab</a></dd>
+    </dl>
+  </section>
+
+  <footer class="stagger" style="--i:9">
+    <p>Last tended November 2026</p>
+  </footer>
+
+</main>
+
+<script>
+  var btn = document.querySelector(".theme-toggle");
+  btn.addEventListener("click", function () {
+    var next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem("theme", next);
+    document.querySelector('meta[name="theme-color"]')
+      .setAttribute("content", next === "dark" ? "#0F1056" : "#FAF8FB");
+  });
+
+  // Grab a keychain and it follows your pointer; let go and it swings itself
+  // out on a damped pendulum. A click without a drag opens the photo full size.
+  (function () {
+    var box     = document.getElementById("lightbox");
+    var boxImg  = box.querySelector("img");
+    var boxCap  = box.querySelector("figcaption");
+    var closeBtn = box.querySelector(".lightbox-close");
+    var lastFocus = null;
+
+    function openBox(charm) {
+      var img = charm.querySelector(".tag img");
+      var cap = charm.querySelector("figcaption");
+      lastFocus = charm.querySelector(".swing");
+      boxImg.src = img.getAttribute("src");
+      boxImg.alt = cap ? cap.textContent : "";
+      boxCap.textContent = cap ? cap.textContent : "";
+      box.hidden = false;
+      document.body.style.overflow = "hidden";
+      closeBtn.focus();
+    }
+
+    function closeBox() {
+      box.hidden = true;
+      boxImg.removeAttribute("src");
+      document.body.style.overflow = "";
+      if (lastFocus) lastFocus.focus();
+    }
+
+    closeBtn.addEventListener("click", closeBox);
+    // clicking the backdrop closes; clicking the photo itself does not
+    box.addEventListener("click", function (e) { if (e.target === box) closeBox(); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !box.hidden) closeBox();
+    });
+
+    var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var clamp = function (v, lim) { return Math.max(-lim, Math.min(lim, v)); };
+
+    document.querySelectorAll(".charm").forEach(function (charm) {
+      var swing = charm.querySelector(".swing");
+      var anchor = charm.querySelector(".anchor");
+      var angle = 0, vel = 0, grabOffset = 0;
+      var dragging = false, moved = false, raf = null;
+      var startX = 0, startY = 0;
+
+      swing.setAttribute("aria-label",
+        "Expand photo: " + (charm.querySelector("figcaption") || {}).textContent);
+
+      // Angle of the pointer about the anchor, hanging straight down being zero.
+      // Negated because a positive CSS rotation swings the tag left, not right.
+      function angleTo(e) {
+        var r = anchor.getBoundingClientRect();
+        var dx = e.clientX - (r.left + r.width / 2);
+        var dy = Math.max(e.clientY - (r.top + r.height / 2), 1);
+        return -Math.atan2(dx, dy) * 180 / Math.PI;
+      }
+
+      // where the idle animation has it right now, so grabbing never snaps
+      function currentAngle() {
+        var t = getComputedStyle(swing).transform;
+        if (!t || t === "none") return 0;
+        var m = new DOMMatrixReadOnly(t);
+        return Math.atan2(m.b, m.a) * 180 / Math.PI;
+      }
+
+      function settle() {
+        vel += -angle * 0.014;   // restoring force toward hanging straight down
+        vel *= 0.945;            // air
+        angle = clamp(angle + vel, 90);
+        swing.style.transform = "rotate(" + angle + "deg)";
+        if (Math.abs(angle) > 0.06 || Math.abs(vel) > 0.06) {
+          raf = requestAnimationFrame(settle);
+        } else {
+          swing.style.transform = "";
+          swing.style.animation = "";   // back to the idle sway
+        }
+      }
+
+      swing.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openBox(charm); }
+      });
+
+      swing.addEventListener("pointerdown", function (e) {
+        dragging = true;
+        moved = false;
+        startX = e.clientX;
+        startY = e.clientY;
+        if (reduced) return;
+        cancelAnimationFrame(raf);
+        angle = currentAngle();
+        grabOffset = angle - angleTo(e);
+        vel = 0;
+        swing.style.animation = "none";
+        swing.style.transform = "rotate(" + angle + "deg)";
+        swing.setPointerCapture(e.pointerId);
+      });
+
+      swing.addEventListener("pointermove", function (e) {
+        if (!dragging) return;
+        // a few pixels of slop so a click isn't read as a drag
+        if (!moved && Math.abs(e.clientX - startX) + Math.abs(e.clientY - startY) > 4) {
+          moved = true;
+        }
+        if (reduced || !moved) return;
+        var target = clamp(angleTo(e) + grabOffset, 62);
+        vel = clamp((target - angle) * 0.5, 7);   // a flick can only throw it so hard
+        angle = target;
+        swing.style.transform = "rotate(" + angle + "deg)";
+      });
+
+      function release(e) {
+        if (!dragging) return;
+        dragging = false;
+        try { swing.releasePointerCapture(e.pointerId); } catch (_) {}
+        if (!moved) {                      // a click, not a drag
+          swing.style.transform = "";
+          swing.style.animation = "";
+          openBox(charm);
+          return;
+        }
+        if (!reduced) raf = requestAnimationFrame(settle);
+      }
+
+      swing.addEventListener("pointerup", release);
+      swing.addEventListener("pointercancel", release);
+    });
+  })();
+</script>
+
+</body>
+</html>
