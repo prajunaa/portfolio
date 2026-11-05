@@ -36,9 +36,15 @@
 <main>
 
   <div class="stagger" style="--i:0">
-    <h1>Arjun Prabhakaran</h1>
-    <p class="role">Builder, founder and ML researcher, working toward physical AI.
-      Senior at Lane Tech High School in Chicago.</p>
+    <div class="intro">
+      <div class="intro-text">
+        <h1>Arjun Prabhakaran</h1>
+        <p class="role">Builder, founder and ML researcher, working toward physical AI.
+          Senior at Lane Tech High School in Chicago.</p>
+      </div>
+      <img class="portrait" src="photos/arjun.webp"
+           alt="Arjun Prabhakaran singing lead at a school concert">
+    </div>
     <p class="lede">I build tools that help people understand what&rsquo;s really happening in
       their business and their data, and my next goal is to move that work off the screen,
       toward systems that perceive and act in physical space.</p>
@@ -50,10 +56,10 @@
   </div>
 
   <div class="charms stagger" style="--i:1">
-    <figure class="charm" style="--w:112px; --period:5.4s; --phase:-0.8s; --amp:2.4deg">
+    <figure class="charm" style="--w:36%; --period:5.4s; --phase:-0.8s; --amp:2.4deg">
       <span class="anchor" aria-hidden="true"></span>
       <span class="swing" role="button" tabindex="0">
-        <span class="string" style="--len:22px" aria-hidden="true"></span>
+        <span class="string" style="--len:28px" aria-hidden="true"></span>
         <span class="tagwrap">
           <span class="ring" aria-hidden="true"></span>
           <span class="tag"><img src="photos/focalect-dashboard.webp" alt="The Focalect analytics dashboard" style="--ar:16/10" draggable="false"></span>
@@ -62,10 +68,10 @@
       <figcaption>focalect</figcaption>
     </figure>
 
-    <figure class="charm" style="--w:76px; --period:6.8s; --phase:-3.1s; --amp:3.2deg">
+    <figure class="charm" style="--w:25%; --period:6.8s; --phase:-3.1s; --amp:3.2deg">
       <span class="anchor" aria-hidden="true"></span>
       <span class="swing" role="button" tabindex="0">
-        <span class="string" style="--len:48px" aria-hidden="true"></span>
+        <span class="string" style="--len:62px" aria-hidden="true"></span>
         <span class="tagwrap">
           <span class="ring" aria-hidden="true"></span>
           <span class="tag"><img src="photos/frc-windy-city.webp" alt="Team 4645 with the 2025 Windy City Windup winner banner" style="--ar:3/4" draggable="false"></span>
@@ -74,10 +80,10 @@
       <figcaption>windy city</figcaption>
     </figure>
 
-    <figure class="charm" style="--w:100px; --period:4.6s; --phase:-1.9s; --amp:1.9deg">
+    <figure class="charm" style="--w:30%; --period:4.6s; --phase:-1.9s; --amp:1.9deg">
       <span class="anchor" aria-hidden="true"></span>
       <span class="swing" role="button" tabindex="0">
-        <span class="string" style="--len:14px" aria-hidden="true"></span>
+        <span class="string" style="--len:16px" aria-hidden="true"></span>
         <span class="tagwrap">
           <span class="ring" aria-hidden="true"></span>
           <span class="tag"><img src="photos/continuum-team.webp" alt="The Continuum team presenting the app" style="--ar:4/3" draggable="false"></span>
@@ -98,7 +104,7 @@
           <ul>
           <li>Unifies Stripe, PayPal, Instagram, Facebook, TikTok and YouTube, then attributes revenue to the campaign that actually earned it.</li>
           <li>Built solo and full-stack. I ran the ad campaigns that onboarded 32 businesses into an early pilot.</li>
-          <li>The first owner I demoed to said she wouldn&rsquo;t use half the graphs. Nine cluttered metrics became four &mdash; she opens it every day.</li>
+          <li>Started off of my data analytics work for my family's own business. This problem came from home and I know the perspective we're targeting for.</li>
           </ul>
         </div>
       </div>
@@ -114,7 +120,6 @@
           <li>Help lead about 100 students; ran a six-week curriculum teaching 20 newcomers programming and electronics.</li>
           <li>Designed the autonomous, wiring and computer vision systems we compete with.</li>
           <li>2026 Midwest Regional Creativity Award &middot; 2025 Windy City Invitational champions &middot; exhibited at the International Manufacturing &amp; Technology Show to 86,000+ attendees.</li>
-          <li>Newcomers used to hang back, so I ran a seniors-versus-freshmen pool noodle battle. When our robot died at the Midwest Regional, they rewired it with me.</li>
           </ul>
         </div>
       </div>
@@ -162,7 +167,7 @@
         <span class="other-title"><a href="https://devpost.com/software/signal-sense-ncd2wa">Signal Sense</a></span>
         <span class="other-hint">first place of 42 teams at HSHacks</span>
       </summary>
-      <p class="other-note">A web app that reads screenshots of conversations, extracts and vectorizes the text, and uses a machine-learning classifier to flag signs that someone may be struggling &mdash; so their friends know when to check in.</p>
+      <p class="other-note">A web app that reads screenshots of conversations, extracts and vectorizes the text, and uses a machine-learning classifier to flag signs that someone may be struggling, so their friends know when to check in.</p>
     </details>
 
     <details>
@@ -220,10 +225,9 @@
   <section class="stagger" style="--i:6">
     <h2>Away from the keyboard</h2>
     <ul>
-      <li>Varsity doubles tennis, 5.21 UTR</li>
       <li>Lead singer of a school band; solo vocalist at three concerts for crowds over a thousand</li>
-      <li>Eight years collecting Yu-Gi-Oh cards, seventeen competitive decks built</li>
-      <li>Fantasy webnovels on the train &mdash; once missed my stop and ended up downtown</li>
+      <li>Varsity tennis player, 5.21 UTR</li>
+      <li>I'm an avid novel reader, my last story was "Three Days of Happiness".</li>
     </ul>
   </section>
 
@@ -280,9 +284,34 @@
     var closeBtn = box.querySelector(".lightbox-close");
     var lastFocus = null;
 
+    var lastCharm = null;
+    var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var EASE = "cubic-bezier(.2,.8,.25,1)";
+
+    // Map the big image back onto the little tag it came from, then play that
+    // backwards: the photo appears to grow out of the charm you clicked.
+    function flip(fromRect, rotation) {
+      var to = boxImg.getBoundingClientRect();
+      if (!to.width || !fromRect.width) return null;
+      var dx = (fromRect.left + fromRect.width / 2) - (to.left + to.width / 2);
+      var dy = (fromRect.top + fromRect.height / 2) - (to.top + to.height / 2);
+      return "translate(" + dx + "px," + dy + "px) scale(" +
+             (fromRect.width / to.width) + "," + (fromRect.height / to.height) + ") " +
+             "rotate(" + (rotation || 0) + "deg)";
+    }
+
+    function tagAngle(charm) {
+      var sw = charm.querySelector(".swing");
+      var t = sw ? getComputedStyle(sw).transform : "none";
+      if (!t || t === "none") return 0;
+      var m = new DOMMatrixReadOnly(t);
+      return Math.atan2(m.b, m.a) * 180 / Math.PI;
+    }
+
     function openBox(charm) {
       var img = charm.querySelector(".tag img");
       var cap = charm.querySelector("figcaption");
+      lastCharm = charm;
       lastFocus = charm.querySelector(".swing");
       boxImg.src = img.getAttribute("src");
       boxImg.alt = cap ? cap.textContent : "";
@@ -290,13 +319,40 @@
       box.hidden = false;
       document.body.style.overflow = "hidden";
       closeBtn.focus();
+
+      if (reduced) return;
+      var from = img.getBoundingClientRect();
+      var angle = tagAngle(charm);
+      requestAnimationFrame(function () {       // let the box lay out before measuring
+        var start = flip(from, angle);
+        if (!start) return;
+        boxImg.animate([{ transform: start, opacity: 0.45 },
+                        { transform: "none", opacity: 1 }],
+                       { duration: 340, easing: EASE });
+        boxCap.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300, delay: 90, easing: EASE, fill: "backwards" });
+        box.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 200, easing: "ease-out" });
+      });
     }
 
-    function closeBox() {
+    function hideBox() {
       box.hidden = true;
       boxImg.removeAttribute("src");
       document.body.style.overflow = "";
       if (lastFocus) lastFocus.focus();
+    }
+
+    function closeBox() {
+      var img = lastCharm && lastCharm.querySelector(".tag img");
+      if (reduced || !img) { hideBox(); return; }
+      var end = flip(img.getBoundingClientRect(), tagAngle(lastCharm));
+      if (!end) { hideBox(); return; }
+      boxCap.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 120, easing: "ease-in", fill: "forwards" });
+      box.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 260, delay: 40, easing: "ease-in", fill: "forwards" });
+      var a = boxImg.animate([{ transform: "none", opacity: 1 },
+                              { transform: end, opacity: 0.45 }],
+                             { duration: 280, easing: "cubic-bezier(.4,0,.7,.4)" });
+      a.onfinish = hideBox;
+      a.oncancel = hideBox;
     }
 
     closeBtn.addEventListener("click", closeBox);
@@ -306,8 +362,38 @@
       if (e.key === "Escape" && !box.hidden) closeBox();
     });
 
-    var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
     var clamp = function (v, lim) { return Math.max(-lim, Math.min(lim, v)); };
+
+    // <details> cannot animate on its own: the content is not in the layout until
+    // it is open, so closing has nothing to transition from. Drive it by hand —
+    // open first and grow from zero, and on close shrink first, then set open=false.
+    document.querySelectorAll(".other details").forEach(function (d) {
+      var summary = d.querySelector("summary");
+      var note = d.querySelector(".other-note");
+      if (!summary || !note) return;
+      var anim = null;
+
+      summary.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (reduced) { d.open = !d.open; return; }
+        if (anim) anim.cancel();
+
+        if (!d.open) {
+          d.open = true;
+          var h = note.scrollHeight;
+          anim = note.animate(
+            [{ height: "0px", opacity: 0 }, { height: h + "px", opacity: 1 }],
+            { duration: 280, easing: EASE });
+          anim.onfinish = function () { note.style.height = ""; anim = null; };
+        } else {
+          var from = note.offsetHeight;
+          anim = note.animate(
+            [{ height: from + "px", opacity: 1 }, { height: "0px", opacity: 0 }],
+            { duration: 230, easing: "cubic-bezier(.4,0,.7,.4)" });
+          anim.onfinish = function () { d.open = false; note.style.height = ""; anim = null; };
+        }
+      });
+    });
 
     document.querySelectorAll(".charm").forEach(function (charm) {
       var swing = charm.querySelector(".swing");

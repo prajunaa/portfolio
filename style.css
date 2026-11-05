@@ -54,13 +54,13 @@ body {
 main {
   max-width: 672px;
   margin: 0 auto;
-  padding: 72px 24px 96px;
+  padding: 52px 24px 72px;
 }
 
 /* ---------- type ---------- */
 
 h1 {
-  font-size: 28px;
+  font-size: 40px;
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: -0.015em;
@@ -75,7 +75,7 @@ h2 {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 0.9em;
+  margin-bottom: 0.65em;
 }
 
 p { margin-bottom: 0.72em; }
@@ -84,6 +84,39 @@ p { margin-bottom: 0.72em; }
 .lede,
 main > div > p,
 main > section > p { max-width: 66ch; }
+
+.intro {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 0.85em;
+}
+
+/* fit-content shrinks this column to the width of the name itself */
+.intro-text {
+  flex: 0 0 auto;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.intro-text h1 { margin-bottom: 0.2em; }
+
+/* width:0 keeps the role out of the fit-content calculation, so it never widens
+   the column; min-width:100% then wraps it to exactly the name's width. */
+.intro-text .role {
+  width: 0;
+  min-width: 100%;
+  margin-bottom: 0;
+}
+
+.portrait {
+  flex: 1 1 auto;
+  min-width: 0;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
 
 .role {
   max-width: none;
@@ -106,9 +139,9 @@ main > section > p { max-width: 66ch; }
 strong { font-weight: 600; color: var(--heading); }
 .quiet { color: var(--muted); }
 
-section { margin-top: 2.2em; }
+section { margin-top: 1.6em; }
 main > section + div,
-main > div + section { margin-top: 2.2em; }
+main > div + section { margin-top: 1.6em; }
 
 /* ---------- lists ---------- */
 
@@ -162,9 +195,9 @@ a:focus-visible { outline: 2px solid var(--heading); outline-offset: 2px; }
   display: flex;
   justify-content: center;
   align-items: stretch;
-  gap: 30px;
-  width: fit-content;
-  margin: 2.4em auto 1.6em;
+  gap: 3%;
+  width: 100%;
+  margin: 1.8em auto 1.2em;
   padding-top: 10px;
 }
 
@@ -173,8 +206,8 @@ a:focus-visible { outline: 2px solid var(--heading); outline-offset: 2px; }
   content: "";
   position: absolute;
   top: 10px;
-  left: -14px;
-  right: -14px;
+  left: 0;
+  right: 0;
   height: 1px;
   background: var(--rule);
   opacity: 0.35;
@@ -184,7 +217,7 @@ a:focus-visible { outline: 2px solid var(--heading); outline-offset: 2px; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: var(--w, 104px);
+  width: var(--w, 30%);
   margin: 0;
 }
 
@@ -232,12 +265,12 @@ a:focus-visible { outline: 2px solid var(--heading); outline-offset: 2px; }
 
 .ring {
   position: absolute;
-  top: 9px;
+  top: 11px;
   left: 50%;
-  width: 12px;
-  height: 12px;
-  margin: -6px 0 0 -6px;
-  border: 1.4px solid var(--rule);
+  width: 15px;
+  height: 15px;
+  margin: -7.5px 0 0 -7.5px;
+  border: 1.5px solid var(--rule);
   border-radius: 50%;
   z-index: 2;
 }
@@ -247,8 +280,8 @@ a:focus-visible { outline: 2px solid var(--heading); outline-offset: 2px; }
   position: relative;
   overflow: hidden;
   border-radius: 5px;
-  -webkit-mask-image: radial-gradient(circle at 50% 9px, transparent 0 3.7px, #000 4.2px);
-          mask-image: radial-gradient(circle at 50% 9px, transparent 0 3.7px, #000 4.2px);
+  -webkit-mask-image: radial-gradient(circle at 50% 11px, transparent 0 4.6px, #000 5.2px);
+          mask-image: radial-gradient(circle at 50% 11px, transparent 0 4.6px, #000 5.2px);
 }
 
 .tag img {
@@ -261,9 +294,9 @@ a:focus-visible { outline: 2px solid var(--heading); outline-offset: 2px; }
 
 .charm figcaption {
   margin-top: auto;
-  padding-top: 10px;
+  padding-top: 11px;
   text-align: center;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--muted);
@@ -396,21 +429,28 @@ a:focus-visible { outline: 2px solid var(--heading); outline-offset: 2px; }
   color: var(--muted);
 }
 
-/* the only affordance: a quiet plus that becomes a minus */
+/* the only affordance: a quiet plus that turns into a cross when open */
 .other summary::after {
   content: "+";
   width: 14px;
   text-align: center;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1;
   color: var(--rule);
+  transform-origin: 50% 50%;
+  transition: transform .28s cubic-bezier(.2, .8, .25, 1);
 }
 
-.other details[open] summary::after { content: "\2013"; }
+.other details[open] summary::after { transform: rotate(135deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .other summary::after { transition: none; }
+}
 
 .other-note {
-  margin: -2px 0 14px;
-  padding-left: 76px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0 0 15px 76px;
   font-size: 15px;
   line-height: 1.5;
   color: var(--ink);
@@ -446,7 +486,6 @@ a:focus-visible { outline: 2px solid var(--heading); outline-offset: 2px; }
   place-items: center;
   padding: 40px 24px;
   background: rgba(15, 16, 86, 0.92);
-  animation: box-in .18s ease-out;
 }
 
 .lightbox[hidden] { display: none; }
@@ -494,13 +533,9 @@ a:focus-visible { outline: 2px solid var(--heading); outline-offset: 2px; }
 .lightbox-close:hover { color: var(--rule); }
 .lightbox-close:focus-visible { outline: 2px solid var(--rule); outline-offset: 2px; }
 
-@keyframes box-in { from { opacity: 0; } to { opacity: 1; } }
-
-@media (prefers-reduced-motion: reduce) { .lightbox { animation: none; } }
-
 /* ---------- footer ---------- */
 
-footer { margin-top: 2.6em; font-size: 14px; color: var(--muted); }
+footer { margin-top: 1.8em; font-size: 14px; color: var(--muted); }
 
 /* ---------- theme toggle ---------- */
 
@@ -545,18 +580,21 @@ footer { margin-top: 2.6em; font-size: 14px; color: var(--muted); }
 
 @media (max-width: 640px) {
   body { font-size: 15px; line-height: 1.6; }
-  main { padding: 40px 20px 56px; }
-  h1 { font-size: 25px; }
+  main { padding: 52px 20px 48px; }
+  h1 { font-size: 29px; }
   li { margin-bottom: 7px; }
   a { overflow-wrap: break-word; word-break: break-word; }
 
-  .charms { gap: 20px; margin: 2em auto 1.4em; }
+  .charms { gap: 2.5%; margin: 2.1em auto 1.4em; }
   .charms::before { left: 4%; right: 4%; }
-  .charm figcaption { font-size: 10px; letter-spacing: 0.06em; }
+  .charm figcaption { font-size: 10px; letter-spacing: 0.06em; padding-top: 9px; }
 
   .entry { gap: 12px; }
   .entry-year { flex-basis: 46px; font-size: 12px; }
   .lede { font-size: 17px; }
+  .intro { flex-direction: column; align-items: stretch; gap: 14px; }
+  .intro-text { width: auto; }
+  .portrait { width: 100%; aspect-ratio: 2 / 1; }
   .entry-note { font-size: 14px; }
   .charm-sm { width: 46px; margin-left: 2px; }
   .elsewhere { grid-template-columns: 70px 1fr; gap: 6px 12px; }

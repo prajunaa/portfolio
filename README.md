@@ -19,6 +19,7 @@ photos/       the charm photographs (WebP, plus the Focalect logo PNG)
 | `focalect-logo.png` | Focalect entry charm |
 | `imts.webp` | FIRST Robotics entry charm |
 | `frc-team.webp` | **unused** — swap it in anywhere you prefer it |
+| `arjun.webp` | the header photo — a 16:9 crop of the concert shot |
 
 All re-encoded to WebP at 1200–1400px, ~450 KB for the set. That is sized for the
 lightbox; the tags themselves render at 76–112px.
@@ -26,6 +27,10 @@ lightbox; the tags themselves render at 76–112px.
 The CNN paper entry has **no charm**, because there is no photograph of it. An entry
 without one simply lets its text run the full width — that is intentional, not a
 missing file. A figure from the paper would drop straight in.
+
+The hanging charms are sized as **percentages of the column** (`--w: 36% / 25% / 30%`),
+not fixed pixels, so they fill the width on desktop and scale down proportionally on
+a phone instead of shrinking to stamps.
 
 Each `--ar` is set to match its photo so `object-fit: cover` crops as little as
 possible: `16/10` for the dashboard, `3/4` for the portrait banner, `4/3` for the
@@ -43,6 +48,12 @@ onto the navy-to-pink ramp; it looked good on abstract placeholder art and turne
 faces and screenshots into an unreadable pink mass, so it is gone. The palette is
 carried by the hairlines instead: the rail, strings, rings, bullets and underlines are
 all `#FF007F`, and the photographs sit inside that frame in their own colours.
+
+**Opening animates.** Clicking a charm runs a FLIP: the lightbox image is measured in
+its final position, mapped back onto the little tag you clicked — including the tag's
+current sway angle — and then animated to identity. The photo appears to grow out of
+the charm rather than cross-fading in. Closing plays it in reverse and only hides the
+overlay once the animation finishes.
 
 **A real hole.** The tag's `mask-image` punches a transparent disc near the top and
 the ring sits in it, so the page shows *through* the artwork rather than a circle
@@ -116,7 +127,20 @@ Measured against the paper: body 11.96:1, headings 16.18:1, muted 5.35:1, pink r
 - The `<summary>` is a grid, not flex — on narrow screens it re-flows to
   `"year title mark" / "hint hint hint"` so the +/– marker stays beside the title
   instead of dropping to its own line.
+- The header role line is clamped to the exact width of the name. `.intro-text` is
+  `width: fit-content`, and `.role` is `width: 0; min-width: 100%` — the zero width
+  keeps it out of the fit-content calculation so it can't widen the column, and the
+  `min-width` then wraps it to whatever the name measures. No magic numbers, and it
+  re-fits itself if the name or font size changes. The photo is `flex: 1` so it takes
+  exactly the remaining width out to the column edge.
 - Contact is a two-column `<dl>`, not a row of pipe-separated links.
+- The **Other work** fold-outs animate open and shut. `<details>` can't do this alone:
+  its content isn't in the layout until it's open, so a closing transition has nothing
+  to animate from. The summary click is intercepted — opening sets `open` first then
+  grows the height from zero; closing shrinks first and only then sets `open = false`.
+  The `+` marker rotates 135° into a `×` rather than swapping characters, because a
+  `content` change can't be transitioned.
+- Every animation is skipped under `prefers-reduced-motion`.
 - `--i` on each `.stagger` block sets the entrance order; they fade up 65ms apart.
   Renumber if you move sections.
 
